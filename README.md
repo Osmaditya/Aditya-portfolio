@@ -1,4 +1,4 @@
-# Aditya — Software, Cloud & AI/ML Engineer Portfolio
+# Aditya — ASE Portfolio
 
 A responsive, interactive personal engineering portfolio built with semantic HTML5, Tailwind CSS, and Vanilla JavaScript. Designed with a dark glassmorphic UI, an interactive recruiter CLI terminal, category-filtered project showcases, and an ATS-friendly print-ready resume viewer.
 
@@ -12,9 +12,9 @@ A responsive, interactive personal engineering portfolio built with semantic HTM
 
 ## Tech Stack
 
-- **Markup & Styling:** HTML5, Tailwind CSS (CDN), Custom CSS3 Animations & Print Media Queries[cite: 1]
-- **Interactivity:** Vanilla JavaScript (ES6+), IntersectionObserver API, HTML5 Canvas[cite: 1]
-- **Typography & Icons:** Inter, JetBrains Mono (Google Fonts), Font Awesome 6[cite: 1]
+- **Markup & Styling:** HTML5, Tailwind CSS (CDN), Custom CSS3 Animations & Print Media Queries
+- **Interactivity:** Vanilla JavaScript (ES6+), IntersectionObserver API, HTML5 Canvas
+- **Typography & Icons:** Inter, JetBrains Mono (Google Fonts), Font Awesome 6
 - **Hosting & CI/CD:** GitHub + Netlify Continuous Deployment
 
 ## Project Structure
