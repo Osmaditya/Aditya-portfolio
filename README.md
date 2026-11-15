@@ -1,6 +1,10 @@
 # Aditya — ASE Portfolio
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-aditya--portfolio--ase.netlify.app-06b6d4?style=for-the-badge&logo=netlify&logoColor=white)](https://aditya-portfolio-ase.netlify.app/)
+
 A responsive, interactive personal engineering portfolio built with semantic HTML5, Tailwind CSS, and Vanilla JavaScript. Designed with a dark glassmorphic UI, an interactive recruiter CLI terminal, category-filtered project showcases, and an ATS-friendly print-ready resume viewer.
+
+**Live Site:** [https://aditya-portfolio-ase.netlify.app/](https://aditya-portfolio-ase.netlify.app/)
 
 ## Features
 
