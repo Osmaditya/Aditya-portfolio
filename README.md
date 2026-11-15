@@ -139,13 +139,13 @@ Follow these steps to run the portfolio locally.
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/Osmaditya/portfolio.git
+git clone https://github.com/Osmaditya/Aditya-portfolio.git
 ```
 
 **2. Navigate to the project directory**
 
 ```bash
-cd portfolio
+cd Aditya-portfolio
 ```
 
 **3. Launch the application**
