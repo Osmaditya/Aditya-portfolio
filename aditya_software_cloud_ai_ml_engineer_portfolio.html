@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya | Software, Cloud & AI/ML Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for crisp engineering & social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        obsidian: '#070b14',
+                        slateDark: '#0d1424',
+                        cardDark: 'rgba(15, 23, 42, 0.65)',
+                        accentCyan: '#06b6d4',
+                        accentIndigo: '#6366f1',
+                        warmAmber: '#f59e0b',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar & Glassmorphism Aesthetics */
+        body {
+            background-color: #070b14;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Animated Engineering Grid Background */
+        .bg-grid-pattern {
+            background-size: 44px 44px;
+            background-image: 
+                linear-gradient(to right, rgba(99, 102, 241, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.45);
+            box-shadow: 0 12px 32px -8px rgba(6, 182, 212, 0.18), 0 0 20px -4px rgba(99, 102, 241, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease-out, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Terminal Scrollbar */
+        .terminal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .terminal-scroll::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        .terminal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(6, 182, 212, 0.4);
+            border-radius: 9999px;
+        }
+
+        /* Blinking Cursor */
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Warm Rim-Light Portrait Frame Styling */
+        .portrait-rim-glow {
+            box-shadow: 
+                -10px -8px 34px -6px rgba(245, 158, 11, 0.32),
+                12px 12px 36px -6px rgba(6, 182, 212, 0.28),
+                0 20px 50px -12px rgba(0, 0, 0, 0.85);
+        }
+
+        /* Print Media Styles for Clean Resume PDF Export */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #full-resume-modal, #full-resume-modal * {
+                visibility: visible;
+            }
+            #full-resume-modal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: #ffffff !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+            }
+            #resume-printable-sheet {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                border: none !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+            }
+            #resume-printable-sheet * {
+                color: #0f172a !important;
+                border-color: #cbd5e1 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-grid-pattern relative selection:bg-cyan-500/30 selection:text-cyan-200">
+
+    <!-- Ambient Glow Orbs -->
+    <div class="fixed top-[-10%] left-[-10%] w-[480px] h-[480px] rounded-full bg-indigo-600/15 blur-[130px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-5%] w-[520px] h-[520px] rounded-full bg-cyan-500/15 blur-[140px] pointer-events-none z-0"></div>
+
+    <!-- Interactive Particle Canvas -->
+    <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
+
+    <!-- Sticky Glassmorphic Navbar -->
+    <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-[#070b14]/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 via-cyan-500 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-lg shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                        A
+                    </div>
+                    <span class="font-sans font-bold text-xl tracking-tight text-slate-100">
+                        Aditya
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+                    <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+                    <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+                    <a href="#milestones" class="hover:text-cyan-400 transition-colors">Certifications</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-2.5">
+                    <button onclick="openFullResumeModal()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800/90 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 transition-all active:scale-95">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Resume</span>
+                    </button>
+                    <button onclick="openResumeModal()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white shadow-lg shadow-cyan-500/20 transition-all active:scale-95">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span class="hidden sm:inline">Recruiter Brief</span>
+                        <span class="sm:hidden">Brief</span>
+                    </button>
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl bg-slate-800/70 text-slate-200 hover:text-cyan-400 border border-slate-700/60">
+                        <i class="fa-solid fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-[#0a0f1c]/95 backdrop-blur-xl px-4 py-4 space-y-2">
+            <a href="#about" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800/60 hover:text-cyan-400 font-medium">About</a>
+            <a href="#experience" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800/60 hover:text-cyan-400 font-medium">Experience</a>
+            <a href="#projects" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800/60 hover:text-cyan-400 font-medium">Projects</a>
+            <a href="#skills" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800/60 hover:text-cyan-400 font-medium">Skills</a>
+            <a href="#milestones" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800/60 hover:text-cyan-400 font-medium">Certifications</a>
+            <a href="#contact" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800/60 hover:text-cyan-400 font-medium">Contact</a>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <!-- HERO SECTION -->
+        <section id="about" class="pt-10 pb-20 sm:pt-16 sm:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <!-- Left Column: Intro & Recruiter Pitch -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Availability Status Pill -->
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
+                        </span>
+                        <span>Bengaluru, India • Open to Software, Cloud, Data & AI/ML Roles</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <p class="text-slate-400 font-mono text-sm sm:text-base">Hello, I'm</p>
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+                            Aditya
+                            <span class="block text-2xl sm:text-3xl font-bold mt-2 gradient-text min-h-[2.4rem]" id="typewriter-role">
+                                Software Engineer
+                            </span>
+                        </h1>
+                    </div>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Computer Science Engineer (<span class="text-white font-semibold">B.Tech CSE '25, IERT Prayagraj • CGPA 8.27</span>) currently at <span class="text-cyan-300 font-semibold">Tata Consultancy Services (TCS)</span> in Bengaluru. Certified <span class="text-amber-300 font-semibold">AWS Cloud Practitioner</span> & <span class="text-purple-300 font-semibold">Claude Certified Developer</span>, <span class="text-white font-semibold">2x GATE CS Qualified (Score: 452)</span>, and problem solver with <span class="text-white font-semibold">400+ DSA problems</span> solved.
+                    </p>
+
+                    <!-- Quick Recruiter Focus Badges -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs font-mono text-cyan-300">Java & 400+ DSA</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-amber-500/30 text-xs font-mono text-amber-300">AWS Certified</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-purple-500/30 text-xs font-mono text-purple-300">Claude Certified Developer</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800/80 border border-emerald-500/30 text-xs font-mono text-emerald-300">MERN, Django & AI/CV</span>
+                    </div>
+
+                    <!-- Primary CTAs & Social Row -->
+                    <div class="flex flex-wrap items-center gap-3.5 pt-3">
+                        <button onclick="openFullResumeModal()" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base shadow-lg shadow-cyan-500/25 transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>View Interactive Resume</span>
+                        </button>
+                        <a href="#projects" class="px-5 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-100 border border-slate-700 hover:border-cyan-400/50 font-semibold text-sm sm:text-base transition-all hover:-translate-y-0.5">
+                            Explore Projects
+                        </a>
+                        <div class="flex items-center gap-2.5">
+                            <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 hover:border-cyan-400/50 transition-all hover:-translate-y-0.5">
+                                <i class="fa-brands fa-github text-lg"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/osmaditya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 border border-slate-700 hover:border-cyan-400/50 transition-all hover:-translate-y-0.5">
+                                <i class="fa-brands fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="https://x.com/osmaditya5" target="_blank" rel="noopener noreferrer" aria-label="X Twitter Profile" class="p-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 hover:border-cyan-400/50 transition-all hover:-translate-y-0.5">
+                                <i class="fa-brands fa-x-twitter text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Cinematic Portrait Card + Interactive Recruiter Terminal -->
+                <div class="lg:col-span-5 space-y-5">
+                    <!-- Profile Portrait Showcase Card -->
+                    <div class="relative mx-auto max-w-sm lg:max-w-none flex items-center gap-4 p-4 rounded-2xl glass-card portrait-rim-glow border border-amber-500/30">
+                        <div class="relative shrink-0">
+                            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-amber-500/50 via-cyan-500/30 to-indigo-500/50 blur-sm"></div>
+                            <img 
+                                src="./Cinematic Portrait with Warm Rim Light.png" 
+                                alt="Aditya — Software, Cloud & AI/ML Engineer" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/300x360/0f172a/38bdf8?text=Aditya';"
+                                class="relative w-24 h-28 sm:w-28 sm:h-32 object-cover object-top rounded-xl border border-amber-400/40 shadow-xl"
+                            >
+                        </div>
+                        <div class="space-y-1.5 min-w-0">
+                            <div class="flex items-center gap-2">
+                                <h2 class="text-lg sm:text-xl font-bold text-white truncate">Aditya</h2>
+                                <span class="px-2 py-0.5 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[10px] font-mono">VERIFIED</span>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-snug">
+                                ASE @ TCS • B.Tech CSE (8.27 CGPA) • AWS & Claude Certified
+                            </p>
+                            <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px] font-mono text-slate-400">
+                                <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">@Osmaditya</a>
+                                <span>•</span>
+                                <a href="https://www.linkedin.com/in/osmaditya" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">in/osmaditya</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive CLI Terminal -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-slate-700/70 shadow-2xl shadow-indigo-950/50">
+                        <!-- Terminal Header -->
+                        <div class="bg-slate-900/95 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500/90"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400/90"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500/90"></span>
+                            </div>
+                            <span class="text-xs font-mono text-slate-400">aditya@bengaluru: ~</span>
+                            <button onclick="clearTerminal()" class="text-xs font-mono text-slate-500 hover:text-cyan-400 transition-colors">clear</button>
+                        </div>
+
+                        <!-- Terminal Output Stream -->
+                        <div id="terminal-output" class="p-4 h-52 overflow-y-auto terminal-scroll font-mono text-xs space-y-2.5 bg-[#060a12]/90">
+                            <div class="text-slate-400">
+                                <span class="text-cyan-400">Welcome, Recruiter!</span> Click a command chip or type below to inspect Aditya's profile.
+                            </div>
+                            <div class="text-slate-300">
+                                <span class="text-emerald-400">➜</span> <span class="text-indigo-400">whoami</span><br>
+                                <span class="text-slate-300">Aditya • B.Tech CSE '25 (8.27 CGPA) • ASE @ TCS • 2x GATE CS (Score 452) • AWS & Claude Certified.</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Command Chips -->
+                        <div class="px-3.5 py-2 bg-slate-900/90 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                            <button onclick="runTerminalCommand('skills')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-cyan-500/20 text-cyan-300 border border-slate-700 text-[11px] font-mono transition-colors">skills</button>
+                            <button onclick="runTerminalCommand('projects')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-indigo-500/20 text-indigo-300 border border-slate-700 text-[11px] font-mono transition-colors">projects</button>
+                            <button onclick="runTerminalCommand('gate')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-emerald-500/20 text-emerald-300 border border-slate-700 text-[11px] font-mono transition-colors">gate</button>
+                            <button onclick="runTerminalCommand('certs')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-amber-500/20 text-amber-300 border border-slate-700 text-[11px] font-mono transition-colors">certs</button>
+                            <button onclick="runTerminalCommand('contact')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-purple-500/20 text-purple-300 border border-slate-700 text-[11px] font-mono transition-colors">contact</button>
+                            <button onclick="runTerminalCommand('help')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] font-mono transition-colors">help</button>
+                        </div>
+
+                        <!-- Terminal Input Form -->
+                        <form id="terminal-form" class="px-3.5 py-2.5 bg-[#080d19] border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
+                            <span class="text-emerald-400 font-bold">aditya:~$</span>
+                            <input type="text" id="terminal-input" autocomplete="off" placeholder="type 'certs', 'gate', 'contact'..." class="w-full bg-transparent text-slate-100 placeholder-slate-600 focus:outline-none">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KEY METRICS & HIGHLIGHTS BAR -->
+            <div class="mt-16 sm:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 reveal">
+                <div class="glass-card rounded-2xl p-5 sm:p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-extrabold gradient-text font-mono">
+                        <span class="counter" data-target="400">0</span>+
+                    </div>
+                    <p class="mt-1.5 text-sm font-semibold text-white">DSA Problems Solved</p>
+                    <p class="text-xs text-slate-400 mt-0.5">LeetCode, GFG & HackerRank</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 sm:p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-extrabold gradient-text font-mono">
+                        <span class="counter" data-target="2">0</span>x
+                    </div>
+                    <p class="mt-1.5 text-sm font-semibold text-white">GATE CS Qualified</p>
+                    <p class="text-xs text-slate-400 mt-0.5">2025 & 2026 • Score: 452</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 sm:p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400 font-mono">
+                        8.27
+                    </div>
+                    <p class="mt-1.5 text-sm font-semibold text-white">B.Tech CSE CGPA</p>
+                    <p class="text-xs text-slate-400 mt-0.5">IERT Prayagraj (2021–2025)</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 sm:p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-extrabold gradient-text font-mono">
+                        AWS + AI
+                    </div>
+                    <p class="mt-1.5 text-sm font-semibold text-white">Dual Certified</p>
+                    <p class="text-xs text-slate-400 mt-0.5">AWS Cloud & Claude Developer</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & EDUCATION TIMELINE -->
+        <section id="experience" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+                <span class="text-xs font-mono uppercase tracking-widest text-cyan-400">Career & Academic Trajectory</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Experience & Education</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-3">
+                    Enterprise infrastructure & ServiceNow automation experience combined with a strong Computer Science academic foundation.
+                </p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-800 ml-3 sm:ml-6 space-y-10">
+                <!-- Item 1: TCS -->
+                <div class="relative pl-8 sm:pl-10 reveal">
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-cyan-500/20"></span>
+                    <div class="glass-card rounded-2xl p-6 sm:p-7">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Assistant System Engineer (Technical Support Analyst)</h3>
+                                <p class="text-cyan-400 font-medium text-sm">Tata Consultancy Services (TCS) • PwC Client Environment</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs">
+                                May 2026 – Present • Bengaluru, India
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300 leading-relaxed list-disc list-inside">
+                            <li>Monitored and maintained enterprise IT infrastructure services, ensuring high system availability and resolving critical incidents within strict SLAs.</li>
+                            <li>Provided <span class="text-white font-medium">L1/L2 technical support</span> by diagnosing and troubleshooting hardware, software, and network issues, reducing resolution turnaround time and boosting end-user satisfaction.</li>
+                            <li>Managed <span class="text-white font-medium">ServiceNow (ITSM)</span> tickets end-to-end following ITIL processes, working across enterprise platforms (<span class="text-cyan-300 font-medium">SAP S/4HANA, Salesforce</span>) and automating operational tasks via scripting.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 2: B.Tech Education -->
+                <div class="relative pl-8 sm:pl-10 reveal">
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20"></span>
+                    <div class="glass-card rounded-2xl p-6 sm:p-7">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Bachelor of Technology in Computer Science & Engineering</h3>
+                                <p class="text-indigo-400 font-medium text-sm">Institute of Engineering and Rural Technology (IERT), Prayagraj</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 font-mono text-xs">
+                                Nov 2021 – July 2025 • CGPA: 8.27
+                            </span>
+                        </div>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Graduated with <span class="text-white font-semibold">8.27 CGPA</span>, mastering core Computer Science subjects including <span class="text-white font-medium">Data Structures & Algorithms, DBMS, Operating Systems, and Computer Networks</span>. Built a real-time Computer Vision & Voice Interaction capstone system.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Intermediate Education -->
+                <div class="relative pl-8 sm:pl-10 reveal">
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></span>
+                    <div class="glass-card rounded-2xl p-6 sm:p-7">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Intermediate (Class XII)</h3>
+                                <p class="text-purple-400 font-medium text-sm">Shri MahaPrabhu Public School, Prayagraj</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 font-mono text-xs">
+                                Apr 2020 – Mar 2021 • 90.4%
+                            </span>
+                        </div>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Completed higher secondary education with <span class="text-white font-semibold">90.4%</span> aggregate, building a strong analytical and mathematical foundation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS SHOWCASE -->
+        <section id="projects" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-cyan-400">Engineering Portfolio</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Featured Projects</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-xl">
+                        End-to-end applications built across Computer Vision, Full-Stack MERN, Django REST APIs, and Cloud deployment.
+                    </p>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="flex flex-wrap gap-2" id="project-filters">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-500 text-slate-950 transition-all">All</button>
+                    <button data-filter="ai" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/70 transition-all">AI / Computer Vision</button>
+                    <button data-filter="fullstack" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/70 transition-all">Full-Stack MERN</button>
+                    <button data-filter="backend" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/70 transition-all">Backend & APIs</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="projects-grid">
+                
+                <!-- Project 1: JobOrbit - MERN Job Portal -->
+                <article data-category="fullstack" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-emerald-500/30 relative overflow-hidden reveal">
+                    <div class="absolute top-0 right-0 px-3 py-1 bg-gradient-to-l from-emerald-500 to-cyan-600 text-[11px] font-mono font-bold text-slate-950 rounded-bl-xl">
+                        FEB – MAR 2026
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-5">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">JobOrbit — MERN Job Portal</h3>
+                        <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+                            Full-stack job portal connecting job seekers and recruiters with secure JWT authentication, job search, one-click applications, saved jobs, and Cloudinary resume uploads.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-emerald-300 font-mono text-xs">MongoDB</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-slate-300 font-mono text-xs">Express.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 font-mono text-xs">React.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-green-300 font-mono text-xs">Node.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-amber-300 font-mono text-xs">JWT & Cloudinary</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Live Production App
+                        </span>
+                        <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 hover:text-cyan-300">
+                            <span>GitHub</span>
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2: Smart Object Detection with Voice Interaction System -->
+                <article data-category="ai" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-cyan-500/30 relative overflow-hidden reveal">
+                    <div class="absolute top-0 right-0 px-3 py-1 bg-gradient-to-l from-cyan-500 to-indigo-600 text-[11px] font-mono font-bold text-white rounded-bl-xl">
+                        APR 2024 – FEB 2025
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-5">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Smart Object Detection & Voice System</h3>
+                        <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+                            Real-time computer vision & voice assistant (Smart Library) combining YOLOv8, OpenCV, and OCR with spoken command recognition to describe surroundings and books hands-free.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 font-mono text-xs">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 font-mono text-xs">YOLOv8</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-indigo-300 font-mono text-xs">OpenCV</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-indigo-300 font-mono text-xs">Tesseract / EasyOCR</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-purple-300 font-mono text-xs">Voice & TTS</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+                        <button onclick="openArchitectureModal()" class="inline-flex items-center gap-2 text-xs font-mono font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            <span>Pipeline Architecture</span>
+                        </button>
+                        <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" aria-label="Smart Object Detection GitHub" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 3: Personal Finance Tracker -->
+                <article data-category="fullstack backend" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl mb-5">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Personal Finance & Analytics Tracker</h3>
+                        <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+                            Decoupled full-stack financial management platform featuring JWT authentication, category-wise expense tracking, and interactive Chart.js analytics.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 font-mono text-xs">React.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-emerald-300 font-mono text-xs">Django REST</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-indigo-300 font-mono text-xs">JWT Auth</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-amber-300 font-mono text-xs">Docker Compose</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Containerized Full-Stack</span>
+                        <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-indigo-400 hover:text-indigo-300">
+                            <span>Source Code</span>
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 4: Task Manager API -->
+                <article data-category="backend" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-5">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Task Manager REST API</h3>
+                        <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+                            Production-grade RESTful API architecture featuring JWT authentication, relational data modeling, multi-parameter status/priority filtering, and automated unit tests.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-amber-300 font-mono text-xs">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-emerald-300 font-mono text-xs">Django REST</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 font-mono text-xs">Pytest</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-indigo-300 font-mono text-xs">JWT & SQLite</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Clean API & Unit Tested</span>
+                        <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-amber-400 hover:text-amber-300">
+                            <span>Source Code</span>
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 5: KeepNotes-MERN -->
+                <article data-category="fullstack" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-5">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">KeepNotes-MERN Cloud App</h3>
+                        <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+                            Cloud-deployed note-taking web application supporting real-time CRUD operations, user session security, and responsive mobile-first UI hosted on Render.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-purple-300 font-mono text-xs">React.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-green-300 font-mono text-xs">Node & Express</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-emerald-300 font-mono text-xs">MongoDB</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 font-mono text-xs">Render Cloud</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Live Cloud Deployment</span>
+                        <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-purple-400 hover:text-purple-300">
+                            <span>GitHub Repo</span>
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 6: AI/LLM Prompt & Workflow Automation -->
+                <article data-category="ai backend" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xl mb-5">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">AI/LLM Workflow & Rate-Limited API Engine</h3>
+                        <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+                            LLM-powered workflow automation and secure API architecture leveraging structured prompt engineering, Redis rate-limiting, and JWT authorization.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-rose-300 font-mono text-xs">Claude / GenAI APIs</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 font-mono text-xs">Node.js & Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-indigo-300 font-mono text-xs">Redis Rate-Limit</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-slate-300 font-mono text-xs">Prompt Engineering</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">AI Systems & API Security</span>
+                        <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono text-rose-400 hover:text-rose-300">
+                            <span>Explore</span>
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS MATRIX -->
+        <section id="skills" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+                <span class="text-xs font-mono uppercase tracking-widest text-cyan-400">Technical Arsenal</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Skills & Engineering Stack</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-3">
+                    Full-stack engineering, AWS cloud architecture, AI/LLM development, and enterprise ITSM platforms.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Category 1: Languages & Core CS -->
+                <div class="glass-card rounded-2xl p-6 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Languages & Core CS</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-500/40 text-cyan-200 text-xs font-mono font-semibold">Java (Primary)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Python</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">JavaScript</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">C</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Data Structures & Algorithms</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">OS, DBMS & Networks</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Cloud & DevOps -->
+                <div class="glass-card rounded-2xl p-6 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center">
+                            <i class="fa-brands fa-aws text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">AWS Cloud & DevOps</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-amber-500/15 border border-amber-500/40 text-amber-200 text-xs font-mono font-semibold">EC2, S3, Lambda, IAM</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">VPC & RDS</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Docker</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">CI/CD Pipelines</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Git & GitHub</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Web, Backend & Databases -->
+                <div class="glass-card rounded-2xl p-6 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Web, Backend & Databases</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/40 text-indigo-200 text-xs font-mono font-semibold">React.js & Node.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Express.js & Django</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">REST APIs & JWT</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">MySQL & MongoDB</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Mongoose & Rate Limiting</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: AI & Emerging Tech -->
+                <div class="glass-card rounded-2xl p-6 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">AI, LLMs & Computer Vision</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 border border-purple-500/40 text-purple-200 text-xs font-mono font-semibold">AI/LLM App Development</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Prompt Engineering</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">ML Algorithms</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">OpenCV & YOLOv8</span>
+                    </div>
+                </div>
+
+                <!-- Category 5: Enterprise IT & ITSM -->
+                <div class="glass-card rounded-2xl p-6 md:col-span-2 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Enterprise Systems, ITSM & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-200 text-xs font-mono font-semibold">ServiceNow (ITSM)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Incident Management & ITIL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">L1/L2 Troubleshooting</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">SAP S/4HANA</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">Salesforce</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-mono">VS Code & Scripting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS & COMPETITIVE MILESTONES -->
+        <section id="milestones" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+                <span class="text-xs font-mono uppercase tracking-widest text-cyan-400">Validated Credentials</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Certifications & Achievements</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Milestone 1: GATE -->
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-cyan-400 reveal">
+                    <div class="w-11 h-11 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Qualified GATE 2025 & 2026 (CS & IT)</h3>
+                    <p class="text-xs font-mono text-cyan-300 mt-1">GATE Score: 452 • Mar 2026</p>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                        Consecutive national-level qualification in Computer Science & Information Technology, demonstrating strong theoretical & algorithmic depth.
+                    </p>
+                </div>
+
+                <!-- Milestone 2: AWS -->
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-amber-400 reveal">
+                    <div class="w-11 h-11 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-brands fa-aws"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">AWS Certified Cloud Practitioner</h3>
+                    <p class="text-xs font-mono text-amber-300 mt-1">Aug 2026 – Aug 2029</p>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                        Validated foundational expertise across AWS services (EC2, S3, Lambda, IAM, VPC, RDS), cloud architecture, security, and deployment models.
+                    </p>
+                </div>
+
+                <!-- Milestone 3: Claude Certified Developer -->
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-purple-400 reveal">
+                    <div class="w-11 h-11 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Claude Certified Developer</h3>
+                    <p class="text-xs font-mono text-purple-300 mt-1">Aug 2026 – Aug 2027</p>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                        Certified in building production applications using AI/LLM systems, structured prompt engineering, and AI-driven workflow integrations.
+                    </p>
+                </div>
+
+                <!-- Milestone 4: 400+ DSA -->
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-emerald-400 reveal">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">400+ DSA Problems Solved</h3>
+                    <p class="text-xs font-mono text-emerald-300 mt-1">LeetCode • GFG • HackerRank</p>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                        Consistent problem solving since Sept 2023 across Dynamic Programming, Graphs, Trees, Binary Search, and Sliding Window paradigms.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECRUITER CONTACT SECTION -->
+        <section id="contact" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-700/70 relative overflow-hidden reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <!-- Contact Info -->
+                    <div class="lg:col-span-5 space-y-5">
+                        <span class="text-xs font-mono uppercase tracking-widest text-cyan-400">Let's Connect</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Get In Touch</h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Open to Software Engineering, AWS Cloud, Data Engineering, and AI/ML opportunities. Reach out directly via email, phone, or social links.
+                        </p>
+
+                        <div class="space-y-3 pt-1">
+                            <!-- Phone -->
+                            <div class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-400 font-mono">Phone</p>
+                                        <p class="text-white font-mono text-xs sm:text-sm">+91 8299287118</p>
+                                    </div>
+                                </div>
+                                <button onclick="copyText('+91 8299287118', 'Phone number copied!')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-cyan-500/20 text-cyan-300 border border-slate-700 text-xs font-mono transition-colors">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <!-- Copy Email Card -->
+                            <div class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-indigo-500/15 text-indigo-400 flex items-center justify-center">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-400 font-mono">Direct Email</p>
+                                        <p id="email-text" class="text-white font-mono text-xs sm:text-sm">smppsaditya@gmail.com</p>
+                                    </div>
+                                </div>
+                                <button onclick="copyText('smppsaditya@gmail.com', 'Email copied to clipboard!')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-cyan-500/20 text-cyan-300 border border-slate-700 text-xs font-mono transition-colors">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-sm">
+                                <div class="w-9 h-9 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] text-slate-400 font-mono">Location</p>
+                                    <p class="text-white font-medium text-xs sm:text-sm">Bengaluru, Karnataka, India</p>
+                                </div>
+                            </div>
+
+                            <!-- Social Links Grid -->
+                            <div class="grid grid-cols-3 gap-2.5 pt-2">
+                                <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-cyan-400/50 text-white text-xs font-mono flex items-center justify-center gap-1.5 transition-all">
+                                    <i class="fa-brands fa-github text-base"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/osmaditya" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/40 text-indigo-300 text-xs font-mono flex items-center justify-center gap-1.5 transition-all">
+                                    <i class="fa-brands fa-linkedin text-base"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://x.com/osmaditya5" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-cyan-400/50 text-slate-200 text-xs font-mono flex items-center justify-center gap-1.5 transition-all">
+                                    <i class="fa-brands fa-x-twitter text-base"></i>
+                                    <span>X</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Recruiter Contact Form -->
+                    <div class="lg:col-span-7 bg-slate-900/70 rounded-2xl p-6 sm:p-8 border border-slate-800">
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="sender-name" class="block text-xs font-mono text-slate-400 mb-1.5">Your Name / Recruiter</label>
+                                    <input type="text" id="sender-name" required placeholder="e.g. Priya Sharma" class="w-full px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <label for="sender-email" class="block text-xs font-mono text-slate-400 mb-1.5">Work Email</label>
+                                    <input type="email" id="sender-email" required placeholder="priya@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="role-interest" class="block text-xs font-mono text-slate-400 mb-1.5">Opportunity Track</label>
+                                <select id="role-interest" class="w-full px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors">
+                                    <option value="Software Engineering">Software Engineering (Java / Full-Stack)</option>
+                                    <option value="AWS Cloud Engineering">AWS Cloud Engineering</option>
+                                    <option value="AI / ML & LLM Engineering">AI / ML & LLM Application Development</option>
+                                    <option value="Data & Backend Engineering">Data & Backend Engineering</option>
+                                    <option value="General Inquiry">General Networking / Collaboration</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="sender-message" class="block text-xs font-mono text-slate-400 mb-1.5">Message</label>
+                                <textarea id="sender-message" rows="4" required placeholder="Hi Aditya, we reviewed your profile and would love to connect regarding an engineering role..." class="w-full px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 focus:border-cyan-400 text-white text-sm focus:outline-none transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/20 transition-all active:scale-[0.99] flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Send Message to Aditya</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800/80 py-8 text-center text-xs sm:text-sm text-slate-500 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="font-mono">© 2026 Aditya • Bengaluru, India</p>
+            <div class="flex items-center gap-4 font-mono text-slate-400">
+                <a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">GitHub</a>
+                <span>•</span>
+                <a href="https://www.linkedin.com/in/osmaditya" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
+                <span>•</span>
+                <a href="https://x.com/osmaditya5" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">X</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: SMART OBJECT DETECTION ARCHITECTURE PIPELINE -->
+    <div id="architecture-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-card rounded-2xl max-w-2xl w-full p-6 sm:p-8 border border-cyan-500/40 relative">
+            <button onclick="closeArchitectureModal()" aria-label="Close Modal" class="absolute top-4 right-4 w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider">System Architecture Blueprint</span>
+            <h3 class="text-2xl font-bold text-white mt-1">Smart Object Detection & Voice Interaction Pipeline</h3>
+            <p class="text-sm text-slate-300 mt-2">
+                End-to-end computer vision and spoken-query pipeline built for real-time environment & book recognition:
+            </p>
+
+            <!-- Pipeline Flow Visual -->
+            <div class="mt-6 space-y-3">
+                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center text-xs">01</span>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Live Video & Image Ingestion (OpenCV)</h4>
+                        <p class="text-xs text-slate-400">Captures real-time video streams or static images with adaptive frame preprocessing.</p>
+                    </div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 font-mono font-bold flex items-center justify-center text-xs">02</span>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Real-Time Object & Region Detection (YOLOv8)</h4>
+                        <p class="text-xs text-slate-400">Identifies objects and book covers/spines with high-confidence bounding box localization.</p>
+                    </div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-xs">03</span>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Optical Character Recognition (Tesseract & EasyOCR)</h4>
+                        <p class="text-xs text-slate-400">Extracts textual metadata from detected regions for contextual query resolution.</p>
+                    </div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 font-mono font-bold flex items-center justify-center text-xs">04</span>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Spoken Command Recognition & Audio Feedback</h4>
+                        <p class="text-xs text-slate-400">Interprets natural user voice queries and synthesizes spoken summaries in real time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: RECRUITER BRIEF SNAPSHOT (WITH PORTRAIT) -->
+    <div id="resume-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-card rounded-2xl max-w-2xl w-full p-6 sm:p-8 border border-indigo-500/40 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeResumeModal()" aria-label="Close Modal" class="absolute top-4 right-4 w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-4 mb-4">
+                <img 
+                    src="Cinematic Portrait with Warm Rim Light.png" 
+                    alt="Aditya" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/120x140/0f172a/38bdf8?text=Aditya';"
+                    class="w-16 h-20 object-cover object-top rounded-xl border border-amber-400/50 shadow-lg"
+                >
+                <div>
+                    <span class="px-2.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 font-mono text-[11px]">RECRUITER EXECUTIVE BRIEF</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Aditya</h3>
+                    <p class="text-xs font-mono text-slate-400">Bengaluru, India • +91 8299287118 • smppsaditya@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="mt-4 space-y-3.5 text-sm text-slate-300">
+                <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+                    <h4 class="font-bold text-cyan-400 text-xs font-mono uppercase mb-1.5">Target Roles</h4>
+                    <p>Software Development Engineer (Java / Full-Stack), AWS Cloud Engineer, AI/ML & LLM Application Developer, Data & Backend Engineer.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+                    <h4 class="font-bold text-indigo-400 text-xs font-mono uppercase mb-1.5">Verified Highlights</h4>
+                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                        <li><strong>B.Tech CSE (8.27 CGPA)</strong> — IERT Prayagraj (2021–2025) | Class XII: 90.4%.</li>
+                        <li><strong>2x GATE CS Qualified (2025 & 2026)</strong> — Secured GATE Score of <strong>452</strong>.</li>
+                        <li><strong>AWS Certified Cloud Practitioner</strong> (2026–2029) & <strong>Claude Certified Developer</strong> (2026–2027).</li>
+                        <li><strong>400+ DSA Problems Solved</strong> across LeetCode, GeeksforGeeks & HackerRank.</li>
+                        <li><strong>TCS Assistant System Engineer</strong> (May 2026–Present) — IT Infrastructure, ServiceNow ITSM & Automation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap items-center justify-end gap-3">
+                <button onclick="copyRecruiterPitch()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 text-xs font-mono font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-copy"></i>
+                    <span>Copy Summary</span>
+                </button>
+                <button onclick="closeResumeModal(); openFullResumeModal();" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-semibold">
+                    Open Full Resume
+                </button>
+                <a href="#contact" onclick="closeResumeModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-xs font-semibold">
+                    Contact Aditya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: FULL INTERACTIVE & PRINT-READY RESUME VIEWER -->
+    <div id="full-resume-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-6 bg-slate-950/85 backdrop-blur-md overflow-y-auto">
+        <div id="resume-printable-sheet" class="bg-slate-900 border border-slate-700 rounded-2xl max-w-4xl w-full p-6 sm:p-10 text-slate-200 shadow-2xl my-auto max-h-[92vh] overflow-y-auto">
+            <!-- Top Action Bar (Hidden on Print) -->
+            <div class="no-print flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-slate-800">
+                <span class="text-xs font-mono text-cyan-400">RESUME PREVIEW • ATS & RECRUITER READY</span>
+                <div class="flex items-center gap-2.5">
+                    <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white text-xs font-semibold flex items-center gap-2 shadow-lg">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Print / Save as PDF</span>
+                    </button>
+                    <button onclick="closeFullResumeModal()" aria-label="Close Resume" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resume Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-800">
+                <div class="flex items-center gap-4">
+                    <img 
+                        src="Cinematic Portrait with Warm Rim Light.png" 
+                        alt="Aditya" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/100x120/0f172a/38bdf8?text=Aditya';"
+                        class="w-16 h-20 object-cover object-top rounded-xl border border-amber-400/40"
+                    >
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Aditya</h2>
+                        <p class="text-sm text-cyan-400 font-medium">Computer Science Engineer • Software, Cloud & AI/ML</p>
+                        <p class="text-xs text-slate-400 mt-1 font-mono">+91 8299287118 | smppsaditya@gmail.com | Bengaluru, India</p>
+                    </div>
+                </div>
+                <div class="text-xs font-mono text-slate-300 space-y-1 sm:text-right">
+                    <div><a href="https://www.linkedin.com/in/osmaditya" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">linkedin.com/in/osmaditya</a></div>
+                    <div><a href="https://github.com/Osmaditya" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">github.com/Osmaditya</a></div>
+                    <div><a href="https://x.com/osmaditya5" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">x.com/osmaditya5</a></div>
+                </div>
+            </div>
+
+            <!-- Resume Body Sections -->
+            <div class="mt-6 space-y-6 text-xs sm:text-sm">
+                <!-- Education -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 border-b border-slate-800 pb-1.5 mb-3">Education</h3>
+                    <div class="space-y-2.5">
+                        <div class="flex flex-wrap justify-between gap-1">
+                            <div>
+                                <p class="font-bold text-white">Institute of Engineering and Rural Technology (IERT), Prayagraj</p>
+                                <p class="text-slate-300">Bachelor of Technology in Computer Science and Engineering | <span class="text-white font-semibold">CGPA: 8.27</span></p>
+                            </div>
+                            <span class="font-mono text-xs text-slate-400">Nov 2021 – July 2025</span>
+                        </div>
+                        <div class="flex flex-wrap justify-between gap-1">
+                            <div>
+                                <p class="font-bold text-white">Shri MahaPrabhu Public School</p>
+                                <p class="text-slate-300">Intermediate | <span class="text-white font-semibold">Percentage: 90.4%</span></p>
+                            </div>
+                            <span class="font-mono text-xs text-slate-400">Apr 2020 – Mar 2021</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 border-b border-slate-800 pb-1.5 mb-3">Technical Skills</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 text-slate-300">
+                        <p><strong class="text-white">Programming Languages:</strong> C, Java, Python, JavaScript</p>
+                        <p><strong class="text-white">Backend & API Security:</strong> Mongoose, Rate Limiting, Auth & Authorization</p>
+                        <p><strong class="text-white">Web Development:</strong> React.js, Node.js, Express.js, REST APIs, Django, JWT</p>
+                        <p><strong class="text-white">Tools & Technologies:</strong> Git, GitHub, VS Code, ServiceNow</p>
+                        <p><strong class="text-white">Databases:</strong> MySQL, MongoDB, SQLite</p>
+                        <p><strong class="text-white">IT Support & Systems:</strong> Incident Management, L1/L2 Troubleshooting, ITSM, SAP S/4HANA, Salesforce</p>
+                        <p><strong class="text-white">Cloud & DevOps:</strong> AWS (EC2, S3, Lambda, IAM, VPC, RDS), Docker, CI/CD Pipelines</p>
+                        <p><strong class="text-white">AI & Emerging Tech:</strong> Prompt Engineering, ML Algorithms, AI/LLM App Development, OpenCV, YOLOv8</p>
+                        <p class="md:col-span-2"><strong class="text-white">Core CS Fundamentals:</strong> Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks</p>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 border-b border-slate-800 pb-1.5 mb-3">Experience</h3>
+                    <div>
+                        <div class="flex flex-wrap justify-between gap-1 mb-1.5">
+                            <p class="font-bold text-white">Tata Consultancy Services — Assistant System Engineer (Technical Support Analyst)</p>
+                            <span class="font-mono text-xs text-slate-400">Bengaluru, India | May 2026 – Present</span>
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300">
+                            <li>Monitored and maintained IT infrastructure services, ensuring high system availability and resolving incidents within SLAs to support uninterrupted business operations.</li>
+                            <li>Provided L1/L2 technical support by diagnosing and troubleshooting hardware, software, and network issues, reducing resolution time and improving end-user satisfaction.</li>
+                            <li>Managed ServiceNow (ITSM) tickets end-to-end while following ITIL processes and automated tasks using scripting.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 border-b border-slate-800 pb-1.5 mb-3">Projects</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex flex-wrap justify-between gap-1">
+                                <p class="font-bold text-white">JobOrbit — MERN Job Portal</p>
+                                <span class="font-mono text-xs text-slate-400">Feb 2026 – Mar 2026</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-0.5 text-slate-300 mt-1">
+                                <li>Built a full-stack Job Portal using the MERN stack with secure JWT-based authentication connecting job seekers and recruiters.</li>
+                                <li>Implemented job search, application tracking, saved jobs, and Cloudinary integration for resume uploads and media handling.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap justify-between gap-1">
+                                <p class="font-bold text-white">Smart Object Detection with Voice Interaction System</p>
+                                <span class="font-mono text-xs text-slate-400">Apr 2024 – Feb 2025</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-0.5 text-slate-300 mt-1">
+                                <li>Developed an integrated real-time object detection (YOLOv8, OpenCV, OCR) and voice recognition system providing interactive spoken feedback on surroundings and books.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates & Achievements -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 border-b border-slate-800 pb-1.5 mb-3">Certificates & Achievements</h3>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300">
+                        <li><strong class="text-white">Qualified GATE 2025 & 2026 (CS & IT)</strong> — Secured a GATE score of <strong>452</strong> in Computer Science and Information Technology (Mar 2026).</li>
+                        <li><strong class="text-white">AWS Certified Cloud Practitioner</strong> (Aug 2026 – Aug 2029) — Cloud architecture, security, AWS best practices, and deployment models.</li>
+                        <li><strong class="text-white">Claude Certified Developer</strong> (Aug 2026 – Aug 2027) — Building AI/LLM applications, prompt engineering, and AI-driven workflows.</li>
+                        <li><strong class="text-white">DSA Problem Solving (400+ Problems)</strong> — Solved 400+ algorithmic problems across LeetCode, GeeksforGeeks, and HackerRank (Sept 2023 – Present).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM TOAST NOTIFICATION -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="px-4 py-3 rounded-xl bg-slate-900/95 border border-cyan-500/50 text-white shadow-2xl flex items-center gap-3 text-sm font-medium backdrop-blur-xl">
+            <i class="fa-solid fa-circle-check text-cyan-400"></i>
+            <span id="toast-message">Action completed!</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT INTERACTIVITY & ANIMATIONS -->
+    <script>
+        // 1. Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 2. Dynamic Role Typewriter Animation
+        const roles = [
+            "Assistant System Engineer @ TCS",
+            "AWS Certified Cloud Practitioner",
+            "Claude Certified AI/LLM Developer",
+            "Full-Stack MERN & Java Engineer"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterEl = document.getElementById('typewriter-role');
+
+        function typeRoleLoop() {
+            const currentRole = roles[roleIndex];
+            if (isDeleting) {
+                typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 35 : 65;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                speed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                speed = 350;
+            }
+            setTimeout(typeRoleLoop, speed);
+        }
+        setTimeout(typeRoleLoop, 600);
+
+        // 3. Interactive Recruiter CLI Terminal
+        const terminalOutput = document.getElementById('terminal-output');
+        const terminalForm = document.getElementById('terminal-form');
+        const terminalInput = document.getElementById('terminal-input');
+
+        const terminalResponses = {
+            help: `Available commands: <span class="text-cyan-300">whoami</span>, <span class="text-cyan-300">skills</span>, <span class="text-cyan-300">projects</span>, <span class="text-cyan-300">gate</span>, <span class="text-cyan-300">certs</span>, <span class="text-cyan-300">contact</span>, <span class="text-cyan-300">hire</span>, <span class="text-cyan-300">clear</span>`,
+            whoami: `Aditya — B.Tech CSE '25 (IERT Prayagraj, 8.27 CGPA) | Assistant System Engineer @ TCS (Bengaluru). 2x GATE CS Qualified (Score: 452) • AWS & Claude Certified.`,
+            skills: `[Languages] Java (Primary), Python, JavaScript, C<br>[Web/DB] React, Node/Express, Django, REST APIs, JWT, MySQL, MongoDB<br>[Cloud] AWS (EC2, S3, Lambda, IAM, VPC, RDS), Docker, CI/CD<br>[AI & ITSM] AI/LLM Dev, Prompt Engineering, YOLOv8, OpenCV, ServiceNow`,
+            projects: `1. <span class="text-emerald-300">JobOrbit</span> — Full-Stack MERN Job Portal + Cloudinary (Feb–Mar 2026)<br>2. <span class="text-cyan-300">Smart Object Detection & Voice System</span> — YOLOv8 + OpenCV + OCR<br>3. <span class="text-indigo-300">Personal Finance Tracker</span> (React + Django REST + Docker)<br>4. <span class="text-amber-300">Task Manager API</span> & <span class="text-purple-300">KeepNotes-MERN</span>`,
+            gate: `Qualified <span class="text-emerald-400 font-semibold">GATE 2025 & 2026 (CS & IT)</span> with a GATE Score of <span class="text-cyan-300 font-bold">452</span>, plus <span class="text-white font-semibold">400+ DSA problems</span> solved on LeetCode, GFG & HackerRank.`,
+            certs: `1. <span class="text-amber-300">AWS Certified Cloud Practitioner</span> (Aug 2026 – Aug 2029)<br>2. <span class="text-purple-300">Claude Certified Developer</span> (Aug 2026 – Aug 2027)<br>3. <span class="text-cyan-300">2x GATE CS & IT Qualified</span> (Score: 452)`,
+            contact: `Email: <span class="text-cyan-300">smppsaditya@gmail.com</span> | Phone: <span class="text-emerald-300">+91 8299287118</span><br>GitHub: <span class="text-indigo-300">github.com/Osmaditya</span> | LinkedIn: <span class="text-indigo-300">linkedin.com/in/osmaditya</span>`,
+            hire: `<span class="text-emerald-400">Ready to contribute!</span> Open to Software Engineering, AWS Cloud, AI/ML & Backend roles. Click 'Resume' in the top bar to view or save PDF.`
+        };
+
+        function runTerminalCommand(cmdRaw) {
+            const cmd = cmdRaw.trim().toLowerCase();
+            if (!cmd) return;
+
+            if (cmd === 'clear') {
+                clearTerminal();
+                return;
+            }
+
+            const entry = document.createElement('div');
+            entry.className = 'text-slate-300 leading-relaxed';
+            const response = terminalResponses[cmd] || `Command not found: <span class="text-rose-400">${escapeHtml(cmd)}</span>. Type <span class="text-cyan-300">help</span> for available commands.`;
+            entry.innerHTML = `<span class="text-emerald-400">➜</span> <span class="text-indigo-400">${escapeHtml(cmd)}</span><br>${response}`;
+            terminalOutput.appendChild(entry);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        function clearTerminal() {
+            terminalOutput.innerHTML = `<div class="text-slate-400">Terminal cleared. Type <span class="text-cyan-300">help</span> to view commands.</div>`;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        terminalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            runTerminalCommand(terminalInput.value);
+            terminalInput.value = '';
+        });
+
+        // 4. Project Category Filter Tabs
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update button styling
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-cyan-500', 'text-slate-950');
+                    b.classList.add('bg-slate-800/80', 'text-slate-300');
+                });
+                btn.classList.add('active', 'bg-cyan-500', 'text-slate-950');
+                btn.classList.remove('bg-slate-800/80', 'text-slate-300');
+
+                const selected = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-category');
+                    if (selected === 'all' || categories.includes(selected)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 5. Scroll Reveal & Animated Metric Counters
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        const counters = document.querySelectorAll('.counter');
+        let countersStarted = false;
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersStarted) {
+                    countersStarted = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 1400;
+                        const stepTime = 25;
+                        const steps = duration / stepTime;
+                        const increment = target / steps;
+                        let current = 0;
+
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+                        }, stepTime);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        if (counters.length > 0) {
+            counterObserver.observe(counters[0].parentElement.parentElement);
+        }
+
+        // 6. Modals (Architecture, Recruiter Brief & Full Printable Resume)
+        const archModal = document.getElementById('architecture-modal');
+        const resumeModal = document.getElementById('resume-modal');
+        const fullResumeModal = document.getElementById('full-resume-modal');
+
+        function openArchitectureModal() {
+            archModal.classList.remove('hidden');
+            archModal.classList.add('flex');
+        }
+        function closeArchitectureModal() {
+            archModal.classList.add('hidden');
+            archModal.classList.remove('flex');
+        }
+        function openResumeModal() {
+            resumeModal.classList.remove('hidden');
+            resumeModal.classList.add('flex');
+        }
+        function closeResumeModal() {
+            resumeModal.classList.add('hidden');
+            resumeModal.classList.remove('flex');
+        }
+        function openFullResumeModal() {
+            fullResumeModal.classList.remove('hidden');
+            fullResumeModal.classList.add('flex');
+        }
+        function closeFullResumeModal() {
+            fullResumeModal.classList.add('hidden');
+            fullResumeModal.classList.remove('flex');
+        }
+
+        // Close modals on backdrop click
+        [archModal, resumeModal, fullResumeModal].forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            });
+        });
+
+        // 7. Clipboard Copy & Toast Notification Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3200);
+        }
+
+        function copyText(text, successMsg) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(successMsg);
+        }
+
+        function copyRecruiterPitch() {
+            const pitch = `Aditya | B.Tech CSE '25 (IERT Prayagraj, 8.27 CGPA) | ASE @ TCS (Bengaluru) | AWS Certified Cloud Practitioner | Claude Certified Developer | 2x GATE CS Qualified (Score: 452) | 400+ DSA Problems | Projects: JobOrbit MERN Portal, Smart Object Detection & Voice System | Email: smppsaditya@gmail.com | Phone: +91 8299287118 | GitHub: github.com/Osmaditya | LinkedIn: linkedin.com/in/osmaditya`;
+            copyText(pitch, 'Recruiter summary copied to clipboard!');
+        }
+
+        // 8. Contact Form Submission Feedback
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('sender-name').value;
+            const role = document.getElementById('role-interest').value;
+            showToast(`Thanks ${name}! Your ${role} inquiry has been logged.`);
+            e.target.reset();
+        });
+
+        // 9. Subtle Interactive Background Particle Network
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function initParticles() {
+            particles = [];
+            const count = Math.min(Math.floor(window.innerWidth / 28), 55);
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    size: Math.random() * 1.8 + 0.8
+                });
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(56, 189, 248, 0.45)';
+            ctx.strokeStyle = 'rgba(99, 102, 241, 0.12)';
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.onload = function () {
+            initParticles();
+            animateParticles();
+        };
+    </script>
+</body>
+</html>
